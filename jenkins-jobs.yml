@@ -3,5 +3,8 @@
   roles:
     - jenkins
   vars:
-   mjobs:
-    - { jobs_name: "cart", repo_name: https://github.com/Vivekdevops1704/cart" }
+    mjobs:
+      - { job_name: "cart", repo_name: https://github.com/Vivekdevops1704/cart" }
+
+    sjobs:
+      - { job_name: "roboshop-terraform",repo_name: "https://github.com/Vivekdevops1704/roboshop-terraform" }
