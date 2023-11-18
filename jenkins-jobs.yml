@@ -1,0 +1,7 @@
+- name: create jenkins Jobs
+  hosts: localhost
+  roles:
+    - jenkins
+  vars:
+   mjobs:
+    - { jobs_name: "cart", repo_name: https://github.com/Vivekdevops1704/cart" }
