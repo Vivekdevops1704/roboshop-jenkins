@@ -1,11 +1,11 @@
 - name: copy config file - {{ item.folder_name }}
   ansible.builtin.template:
-    src: folders.xml
-    dest: /tmp/folders.xml
+    src: folder.xml
+    dest: /tmp/folder.xml
 
 - name: Create job - {{ item.folder_name }}
   community.general.jenkins_job:
-    config: "{{ lookup('file', '/tmp/folders.xml') }}"
+    config: "{{ lookup('file', '/tmp/folder.xml') }}"
     name: "{{ item.folder_name }}"
     password: admin123
     url: http://172.31.46.106:8080
