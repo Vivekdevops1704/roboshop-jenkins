@@ -1,7 +1,7 @@
 def info(message) {
     echo "INFO: ${message}"
 }
-def call()
+def call(){
 pipeline {
     agent any
        stages {
@@ -35,3 +35,4 @@ pipeline {
             }
         }
     }
+}
