@@ -9,7 +9,7 @@ pipeline {
                 steps{
                     echo "this is compile phase"
                     script {
-                      demo.info 'starting'
+                      info 'starting'
                     }
                 }
             }
