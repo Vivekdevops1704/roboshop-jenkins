@@ -1,15 +1,15 @@
 def info(message) {
     echo "INFO: ${message}"
 }
-def call() {
-    pipeline {
+def call()
+pipeline {
     agent any
        stages {
             stage("compile"){
                 steps{
                     echo "this is compile phase"
                     script {
-                      info 'starting'
+                      demo.info 'starting'
                     }
                 }
             }
@@ -35,4 +35,3 @@ def call() {
             }
         }
     }
-}
