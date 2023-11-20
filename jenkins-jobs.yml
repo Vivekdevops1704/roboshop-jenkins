@@ -9,4 +9,4 @@
     mjobs:
       - { job_name: "cart", repo_name: "https://github.com/Vivekdevops1704/cart" , folder_name: "CI-pipelines" }
     sjobs:
-      - { job_name: "roboshop-terraform",repo_name: "https://github.com/raghudevopsb74/roboshop-terraform" , folder_name: "Infra-Jobs" }
+      - { job_name: "roboshop-terraform",repo_name: "https://github.com/Vivekdevops1704/roboshop-terraform" , folder_name: "Infra-Jobs" }
