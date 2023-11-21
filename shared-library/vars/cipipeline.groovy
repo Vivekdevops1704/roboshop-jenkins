@@ -1,6 +1,3 @@
-def info(message) {
-    echo "INFO: ${message}"
-}
 def call(){
 pipeline {
     agent any
@@ -28,9 +25,19 @@ pipeline {
                     echo "this is sonarqibe scan phase"
                 }
             }
-            stage("test check"){
+            stage("code security"){
+                when {
+                    expression { 
+                        BRANCH_NAME == "main" 
+                        }
+                }
                 steps{
                     echo "this is testing phase"
+                }
+            }
+            stage("release"){
+                steps{
+                    echo "Hi Release"
                 }
             }
         }
