@@ -4,10 +4,7 @@ pipeline {
        stages {
             stage("compile"){
                 steps{
-                    echo "this is compile phase"
-                    script {
-                      info 'starting'
-                    }
+                    echo "this is compile phase"                    
                 }
             }
             stage("build"){
