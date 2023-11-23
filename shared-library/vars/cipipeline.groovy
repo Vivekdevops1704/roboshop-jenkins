@@ -4,10 +4,7 @@ pipeline {
        stages {
             stage("compile"){
                 steps{
-                    echo "this is compile phase"
-                    script {
-                      info 'starting'
-                    }
+                    echo "this is compile phase"                    
                 }
             }
             stage("build"){
@@ -22,13 +19,14 @@ pipeline {
             }
             stage("sast check"){
                 steps{
+                    sh 'env'
                     echo "this is sonarqibe scan phase"
                 }
             }
             stage("code security"){
                 when {
                     expression { 
-                        BRANCH_NAME == "main" 
+                        BRANCH_NAME != 'main' 
                         }
                 }
                 steps{
