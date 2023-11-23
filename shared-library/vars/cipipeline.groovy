@@ -19,6 +19,7 @@ pipeline {
             }
             stage("sast check"){
                 steps{
+                    sh 'env'
                     echo "this is sonarqibe scan phase"
                 }
             }
