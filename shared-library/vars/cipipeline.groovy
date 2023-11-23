@@ -37,6 +37,9 @@ pipeline {
             }
             stage("release"){
                 steps{
+                    when {
+                        expression { TAG_NAME ==~ ".*" }
+                    }
                     echo "Hi Release"
                 }
             }
