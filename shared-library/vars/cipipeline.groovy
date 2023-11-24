@@ -11,12 +11,9 @@ node {
              userRemoteConfigs: [[url: "https://github.com/raghudevopsb74/${component}"]]
              )
 
-            stage("compile"){             
+            stage("compile and build"){             
                common.compile()                 
                 }           
-            stage("build"){                
-                    echo "this is build phase"                
-            }
             stage("test"){               
                     echo "this is test phase"
             }
