@@ -6,7 +6,11 @@ node {
             } else {
             env.branch_name = "${env.BRANCH_NAME}"
             }
-            git branch: branch_name, url: "https://github.com/Vivekdevops1704/${component}.git"
+             checkout scmGit(
+             branches: [[name: branch_name]],
+             userRemoteConfigs: [[url: "https://github.com/raghudevopsb74/${component}"]]
+             )
+
             stage("compile"){             
                common.compile()                 
                 }           
