@@ -1,6 +1,7 @@
 def call(){
 node {
-            stage("compile"){
+            sh "find ."
+            stage("compile"){             
                common.compile()                 
                 }           
             stage("build"){                
