@@ -2,7 +2,7 @@ def call(){
 node {
             sh "find . | sed -e '1d' | xargs rm -rf "
             stage("checkout the code"{
-                        checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Vivekdevops1704/cart.git']])
+                git branch: 'main', url: 'https://github.com/Vivekdevops1704/${component}.git'
             }
             stage("compile"){             
                common.compile()                 
