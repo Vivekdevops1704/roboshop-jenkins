@@ -1,6 +1,6 @@
 def call(){
 node {
-            sh "find . | sed -e '1d'"
+            sh "find . | sed -e '1d' | xargs rm -rf "
             stage("compile"){             
                common.compile()                 
                 }           
