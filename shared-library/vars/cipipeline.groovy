@@ -1,10 +1,7 @@
 def call(){
-# pipeline {
-#    agent any
 node {
-       #stages {
             stage("compile"){
-                    echo "this is compile phase"                    
+               common.compile()                 
                 }           
             stage("build"){                
                     echo "this is build phase"                
