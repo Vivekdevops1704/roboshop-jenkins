@@ -1,6 +1,11 @@
 def call(){
 node {
             sh "find . | sed -e '1d' | xargs rm -rf "
+            if(env.TAG_NAME ==~ ".*") {
+            env.branch_name = "refs/tags/${env.TAG_NAME}"
+            } else {
+            env.branch_name = "${env.BRANCH_NAME}"
+            }
             git branch: "${BRANCH_NAME}", url: "https://github.com/Vivekdevops1704/${component}.git"
             stage("compile"){             
                common.compile()                 
