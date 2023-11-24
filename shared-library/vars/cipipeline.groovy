@@ -6,7 +6,7 @@ node {
             } else {
             env.branch_name = "${env.BRANCH_NAME}"
             }
-            git branch: "${BRANCH_NAME}", url: "https://github.com/Vivekdevops1704/${component}.git"
+            git branch: branch_name, url: "https://github.com/Vivekdevops1704/${component}.git"
             stage("compile"){             
                common.compile()                 
                 }           
