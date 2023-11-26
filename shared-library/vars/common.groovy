@@ -17,7 +17,12 @@ def test() {
   stage('Test Cases') {
     if (env.codeType == "maven") {
       sh '/opt/maven/bin/mvn test'
-      print 'OK'
+    }
+     if (env.codeType == "nodejs") {
+      sh 'npm test'
+    }
+     if (env.codeType == "python") {
+      sh 'python3.6 -m unittest'
     }
   }
 }
