@@ -15,14 +15,14 @@ node {
                common.compile()                 
                 }           
             stage("test"){               
-                   common.test() 
+               common.test() 
             }
             stage("sast check"){               
                     sh 'env'
                     echo "this is sonarqibe scan phase"           
             }
             stage("code security"){                          
-                    echo "this is testing phase"               
+                    echo "this is security phase"               
             }
             stage("release"){
                     echo "Hi Release"
