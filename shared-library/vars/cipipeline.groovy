@@ -18,8 +18,7 @@ node {
                common.test() 
             }
             stage("sast check"){               
-                    sh 'env'
-                    echo "this is sonarqibe scan phase"           
+                    common.codeQuality()        
             }
             stage("code security"){                          
                     echo "this is security phase"               
