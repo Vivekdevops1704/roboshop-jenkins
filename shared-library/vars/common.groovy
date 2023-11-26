@@ -20,3 +20,4 @@ def test() {
       sh '/opt/maven/bin/mvn test'
       print 'OK'
     }
+  }
