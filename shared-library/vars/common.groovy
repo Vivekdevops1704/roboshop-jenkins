@@ -9,7 +9,6 @@ def compile() {
     if (env.codeType == "nodejs"){
         sh 'npm install'
     }
-    }
     if (env.codeType == "golang"){
         print 'golang'
     }
@@ -21,3 +20,4 @@ def test() {
       print 'OK'
     }
   }
+}
