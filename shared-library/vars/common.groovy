@@ -35,6 +35,6 @@ def codeQuality() {
    def sonarpass = sh (script: 'aws ssm get-parameter --name "sonarqube_pass" --with-decryption --query="Parameter.Value" |xargs', returnStdout: true).trim()                    
     echo "${sonaruser}"
     echo "${sonarpass}"
-    sh 'sonar-scanner -X -Dsonar.host.url=http://54.224.207.41:9000 -Dsonar.login=${sonaruser} -Dsonar.password=${sonarpass}-Dsonar.projectKey=${component} -Dsonar.qualitygate.wait=true'
+    sh 'sonar-scanner -X -Dsonar.host.url=http://54.224.207.41:9000 -Dsonar.login=${sonaruser} -Dsonar.password=${sonarpass} -Dsonar.projectKey=${component} -Dsonar.qualitygate.wait=true'
    }
 }
