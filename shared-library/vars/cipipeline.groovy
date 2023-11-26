@@ -8,7 +8,7 @@ node {
             }
              checkout scmGit(
              branches: [[name: branch_name]],
-             userRemoteConfigs: [[url: "https://github.com/raghudevopsb74/${component}"]]
+             userRemoteConfigs: [[url: "https://github.com/Vivekdevops/${component}"]]
              )
 
             stage("compile and build"){             
