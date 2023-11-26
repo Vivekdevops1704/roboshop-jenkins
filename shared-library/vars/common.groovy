@@ -34,7 +34,11 @@ def codeQuality() {
    env.sonaruser = sh (script: 'aws ssm get-parameter --name "sonarqube_user" --query="Parameter.Value" |xargs', returnStdout: true).trim()
    env.sonarpass = sh (script: 'aws ssm get-parameter --name "sonarqube_pass" --with-decryption --query="Parameter.Value" |xargs', returnStdout: true).trim()
     wrap([$class: "MaskPasswordsBuildWrapper", varPasswordPairs: [[password: sonarpass]]]) {
-    sh 'sonar-scanner -X -Dsonar.host.url=http://3.89.200.49:9000 -Dsonar.login=${sonaruser} -Dsonar.password=${sonarpass} -Dsonar.projectKey=${component} -Dsonar.qualitygate.wait=true'
-   }
+         if(env.codeType == "maven") {
+        //sh 'sonar-scanner -Dsonar.host.url=http://172.31.89.117:9000 -Dsonar.login=${sonaruser} -Dsonar.password=${sonarpass} -Dsonar.projectKey=${component} -Dsonar.qualitygate.wait=true -Dsonar.java.binaries=./target'
+    sh 'sonar-scanner -X -Dsonar.host.url=http://3.89.200.49:9000 -Dsonar.login=${sonaruser} -Dsonar.password=${sonarpass} -Dsonar.projectKey=${component} -Dsonar.qualitygate.wait=true'  -Dsonar.java.binaries=./target'
+   }else {
+             sh 'sonar-scanner -X -Dsonar.host.url=http://3.89.200.49:9000 -Dsonar.login=${sonaruser} -Dsonar.password=${sonarpass} -Dsonar.projectKey=${component} -Dsonar.qualitygate.wait=true'
+         }        
 }
 }
