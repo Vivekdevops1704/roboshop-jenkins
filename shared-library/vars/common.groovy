@@ -4,7 +4,7 @@ def compile() {
     }
     
     if (env.codeType == "maven") {
-      sh '/home/centos/maven/bin/mvn package'
+      sh '/opt/maven/bin/mvn package'
     }
     if (env.codeType == "nodejs"){
         sh 'npm install'
@@ -14,3 +14,9 @@ def compile() {
         print 'golang'
     }
 }
+def test() {
+  stage('Test Cases') {
+    if (env.codeType == "maven") {
+      sh '/opt/maven/bin/mvn test'
+      print 'OK'
+    }
