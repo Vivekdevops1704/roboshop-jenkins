@@ -15,7 +15,7 @@ node {
                common.compile()                 
                 }           
             stage("test"){               
-                    echo "this is test phase"
+                   common.test() 
             }
             stage("sast check"){               
                     sh 'env'
