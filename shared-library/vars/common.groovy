@@ -34,7 +34,8 @@ def codeQuality() {
     env.sonaruser = sh (script: 'aws ssm get-parameter --name "sonarqube_user" --with-decryption --query="Parameter.Value" | xargs', returnStdout: true).trim()
     env.sonarpass = sh (script: 'aws ssm get-parameter --name "sonarqube_pass" --with-decryption --query="Parameter.Value" | xargs', returnStdout: true).trim()                    
     //  sh 'sonar-scanner -Dsonar.host.url=http://54.90.236.64:9000 -Dsonar.login=admin -Dsonar.password=admin123 -Dsonar.projectKey=${component} -Dsonar.qualitygate.wait=true'
-   print ${sonaruser}
-   print ${sonarpass}                 
+//   print ${sonaruser}
+//   print ${sonarpass}
+      print 'OK'
    }
 }
