@@ -26,3 +26,9 @@ def test() {
     }
   }
 }
+
+def codeQuality() {
+  stage('Code Quality') {
+      sh 'sonar-scanner -Dsonar.host.url=http://54.90.236.64:9000 -Dsonar.login=admin -Dsonar.password=admin123 -Dsonar.projectKey=cart -Dsonar.qualitygate.wait=true'
+    }
+    }
