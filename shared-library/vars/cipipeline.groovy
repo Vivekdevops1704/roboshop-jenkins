@@ -24,7 +24,7 @@ node {
                     echo "this is security phase"               
             }
             stage("release"){
-                    echo "Hi Release"
+                    common.codeRelease()
                 }
             }
         }
