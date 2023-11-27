@@ -46,3 +46,22 @@ def codeQuality() {
     }
 }
 }
+//This is for Nexus
+def codeQuality() {
+  stage('Code release') {
+   env.nexususer = sh (script: 'aws ssm get-parameter --name "nexus_user" --query="Parameter.Value" |xargs', returnStdout: true).trim()
+   env.nexuspass = sh (script: 'aws ssm get-parameter --name "nexus_pass" --query="Parameter.Value" |xargs', returnStdout: true).trim()
+      wrap([$class: "MaskPasswordsBuildWrapper", varPasswordPairs: [[password: nexuspass]]]) {
+         // sh''
+          if(env.codeType == "nodejs") {
+            sh  'zip -r ${component}.zip server.js node_modules'  
+          }
+          //else {
+          //if(env.codeType == "maven") {
+            //  sh '
+         // }
+     // }
+  }
+  }
+}
+}
