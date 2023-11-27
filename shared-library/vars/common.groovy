@@ -47,7 +47,7 @@ def codeQuality() {
 }
 }
 //This is for Nexus
-def codeQuality() {
+def codeRelease() {
   stage('Code release') {
    env.nexususer = sh (script: 'aws ssm get-parameter --name "nexus_user" --query="Parameter.Value" |xargs', returnStdout: true).trim()
    env.nexuspass = sh (script: 'aws ssm get-parameter --name "nexus_pass" --query="Parameter.Value" |xargs', returnStdout: true).trim()
