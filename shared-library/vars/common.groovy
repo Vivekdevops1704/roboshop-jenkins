@@ -62,6 +62,7 @@ def codeRelease() {
             //  sh '
          // }
      // }
+          sh 'curl -v -u ${nexususer}:${nexuspass} --upload-file ${component}-${TAG_NAME}.zip http://52.90.253.149:8081/repository/${component}/${component}-${TAG_NAME}.zip'
   }
   }
 }
