@@ -54,7 +54,8 @@ def codeRelease() {
       wrap([$class: "MaskPasswordsBuildWrapper", varPasswordPairs: [[password: nexuspass]]]) {
          // sh''
           if(env.codeType == "nodejs") {
-            sh  'zip -r ${component}.zip server.js node_modules'  
+              sh 'env'
+            sh  'zip -r ${component}-${TAG_NAME}.zip server.js node_modules'  
           }
           //else {
           //if(env.codeType == "maven") {
